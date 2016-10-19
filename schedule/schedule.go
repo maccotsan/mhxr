@@ -177,35 +177,3 @@ func CreateHTML() (string, error) {
 
 	return html, nil
 }
-
-func CreateHorizonHTML() (string, error) {
-	eventSchedules, err := GetEventSchedule()
-	if err != nil {
-		return "", err
-	}
-
-	html := ""
-	indent := "    "
-	for _, eventSchedule := range eventSchedules {
-		html += "<table>\n"
-		html += indent + "<tr>\n"
-		for i := 0; i < 24; i++ {
-			html += indent + indent + "<td>" + strconv.Itoa(i) + "</td>\n"
-		}
-		html += indent + "</tr>\n"
-		for _, event := range eventSchedule.events {
-			html += indent + "<tr>\n"
-			for _, flag := range event.timeTable {
-				html += indent + indent + "<td>\n"
-				if (flag) {
-					html += indent + indent + indent +"<img src=http:" + event.imageURL + " width=100>\n"
-				}
-				html += indent + indent + "</td>\n"
-			}
-			html += indent + "</tr>\n"
-		}
-		html += "</table>\n"
-	}
-
-	return html, nil
-}
