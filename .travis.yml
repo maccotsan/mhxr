@@ -6,13 +6,7 @@ script:
   - go test ./schedule -v
   - go build
   - git clone -b gh-pages https://github.com/maccotsan/mhxr pages
-  - ./mhxr
-  - cd ./pages
-  - git config user.email "maccotsan@gmail.com"
-  - git config user.name "maccotsan(Travis-CI)"
-  - git commit -a -m "Update today schedule."
   - '[ "$TRAVIS_BRANCH" == master ] && [ "$TRAVIS_PULL_REQUEST" == "false" ] && bash ./deploy.sh'
-#after_success:
 notifications:
   email:
     maccotsan@gmail.com
