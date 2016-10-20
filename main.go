@@ -1,7 +1,7 @@
 package main
 
 import (
-	"mhxr/schedule"
+	"github.com/maccotsan/mhxr/schedule"
 	"fmt"
 	"os"
 )
