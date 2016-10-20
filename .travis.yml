@@ -5,7 +5,7 @@ go:
 script:
   - go test ./schedule -v
   - go build
-  - git worktree add pages gh-pages
+  - git clone -b gh-pages https://github.com/maccotsan/mhxr pages
   - ./mhxr
   - cd ./pages
   - git commit -a -m "Update today schedule."
