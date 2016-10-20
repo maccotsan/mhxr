@@ -8,6 +8,8 @@ script:
   - git clone -b gh-pages https://github.com/maccotsan/mhxr pages
   - ./mhxr
   - cd ./pages
+  - git config user.email "maccotsan@gmail.com"
+  - git config user.name "maccotsan(Travis-CI)"
   - git commit -a -m "Update today schedule."
 after_success:
   - '[ "$TRAVIS_BRANCH" == master ] && [ "$TRAVIS_PULL_REQUEST" == "false" ] && bash ./deploy.sh'
