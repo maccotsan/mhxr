@@ -4,6 +4,11 @@ go:
   - tip
 script:
   - go test ./schedule -v
+after_success:
+  - '[ "$TRAVIS_BRANCH" == master ] && [ "$TRAVIS_PULL_REQUEST" == "false" ] && bash ./deploy.sh'
 notifications:
   email:
     maccotsan@gmail.com
+env:
+  global:
+    - secure: "Vzzl7cj3zze1g/EMmxSI7yOeXk0OzFKGCdz52jnN7CWX0StHrAfNcMOwa/ATNZIwKVmtJBBv8C7Z86PPOZQwoj0VU45SP/G1EAMiwnZ8F83UJZ9Eyq6yKkXW0/J2GQVWo9BmB+lq1uYC5Pj7ZaWZYw0Z3Nmu4BhttqR2M5gzToiYAoMX/nOPyauTKOs5NCBLTLWIdSHSD/MhlO3WM107yDkGM08N4h+kVeyq2yGg0dlT31zsYwtubxPQzvKLquO2NfVsM0I5zd+GYTNHJsFy/5f/VLaEUeznpVAtgit8i4XajqWLG169urSx8Jrf95pwh7hN2WWc8dF+xdqQDv08loE9czF7PLgA4KXqfyjOZV02cRIjwdnnEsDy5ZBM8OzeJ/vRe23CjEdO+OstOPquPzFH9BKeUpCmgu4st+b2mUQhtCtbARSuBfWl/0IpSnFJKlLuKQ8KOYQ8tNN8xJRZTvitCOEgxU4cG6Ca/qIjrJx8Lerw8JypSrXTBBwXdMVAbNt/Mvi8US0pTF0ypNOzPWY/99u4qkxZrX5FeXmveamoQmeAQ8rS6HooKk/rnVNr/TM4kFF1iCTePNSXzgc0NlaYRlWH8vVzFeF6JUryu2J7h+SkchGIwERg3DHxCOhb8WPFUbgsB91fcIu1ViCfqGhjiUDKltCqqnNT4OucALQ="
