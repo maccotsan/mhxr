@@ -4,6 +4,11 @@ go:
   - tip
 script:
   - go test ./schedule -v
+  - go build
+  - git worktree add pages gh-pages
+  - ./mhxr
+  - cd ./pages
+  - git commit -a -m "Update today schedule."
 after_success:
   - '[ "$TRAVIS_BRANCH" == master ] && [ "$TRAVIS_PULL_REQUEST" == "false" ] && bash ./deploy.sh'
 notifications:
